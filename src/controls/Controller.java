@@ -1,6 +1,7 @@
 package controls;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -16,6 +17,7 @@ import parser.ManyParser;
 import turtleDetails.ReadableState;
 import turtleDetails.Turtle;
 import turtleDetails.TurtleTrail;
+import utilities.SimpleFileChooser;
 import xml.BackReader;
 import xml.BackWriter;
 import xml.FrontReader;
@@ -228,9 +230,22 @@ public class Controller {
 		}
 	}
 	
+	//https://stackoverflow.com/questions/12559917/java-how-to-convert-a-file-object-to-a-string-object-in-java
 	public void loadLibrary() {
 		try {
-			new BackReader(model, getFile());
+			String str="";
+			File f=SimpleFileChooser.chooseFile("data/code libraries");
+			if(f==null) {
+				return;
+			}
+			//new BackReader(model, f);
+			FileInputStream fis=new FileInputStream(f);
+			int content;
+			while((content=fis.read())!=-1){
+				str+=(char) content;
+			}
+			myUI.enterCommandInput(str);
+			
 		} catch (Exception e) {
 			displayException(e);
 		}
@@ -238,7 +253,12 @@ public class Controller {
 	
 	public void loadVisual() {
 		try {
-			new FrontReader(model, getFile());
+			File f=SimpleFileChooser.chooseFile("data/visual settings");
+			if(f==null) {
+				return;
+			}
+		
+			new FrontReader(model,f);
 		} catch (Exception e) {
 			displayException(e);
 		}
@@ -250,10 +270,6 @@ public class Controller {
 		} catch (XMLException e) {
 			displayException(e);
 		}
-	}
-	
-	private File getFile() {
-		return fileChooser().showOpenDialog(new Stage());
 	}
 	
 	private String getFileName() {

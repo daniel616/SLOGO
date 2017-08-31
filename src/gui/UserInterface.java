@@ -64,6 +64,10 @@ public class UserInterface extends BorderPane {
 		variablesCB.setPromptText(resource.getString(VARIABLES));
 		commandsCB.setPromptText(resource.getString(USER_MADE_COMMANDS));
 	}
+	
+	public void enterCommandInput(String input) {
+		this.input.setText(input);
+	}
 
 	public ConsoleOutput getOutputBox() {
 		return output;

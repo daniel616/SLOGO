@@ -42,6 +42,10 @@ public class TextInput extends Group {
 		makeButtonPanel();
 	}
 	
+	public void setText(String text) {
+		input.setText(text);
+	}
+	
 	public void setLanguage(ResourceBundle resource){
 		btn_execute.setText(resource.getString(EXCECUTE));
 		btn_clear.setText(resource.getString(CLEAR));

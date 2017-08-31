@@ -11,7 +11,7 @@
 	-fx-text-fill: WHITE;
 	-fx-background-color:
     	linear-gradient(#4d804d, #13e213);
-	-fx-border-radius: 10;
+	//-fx-border-radius: 10;
 	-fx-background-radius: 10;
 }
 

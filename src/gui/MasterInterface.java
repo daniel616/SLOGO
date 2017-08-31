@@ -43,7 +43,7 @@ public class MasterInterface {
 		addUI(new Controller().getMyUI());
 		toPutInScene.getChildren().add(tabHolder);
 		myScene.setOnKeyPressed(e -> handleKeyInput(e.getCode()));
-		myScene.getStylesheets().setAll(DEFAULT_RESOURCE_PACKAGE+CSS);
+		//myScene.getStylesheets().setAll(DEFAULT_RESOURCE_PACKAGE+CSS);
 	}
 	
 	public void addUI(UserInterface ui) {
