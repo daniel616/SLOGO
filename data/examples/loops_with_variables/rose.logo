@@ -1,0 +1,10 @@
+make :number 5
+make :order 3
+make :x / - * 2 :order :number * :number 2
+make :step 5
+make :number * 360 5
+
+dotimes [ :k :number ] [ 
+  fd :step
+  rt + :k :x
+]

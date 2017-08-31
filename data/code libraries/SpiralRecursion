@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><Workspace Language="English"><Variable><Name>:len</Name><Value>10</Value></Variable><Command><Name>spiral</Name><Parameter>:len</Parameter><Body>if less? :len 200 [ fd :len rt 89 spiral + :len 3 ]</Body></Command></Workspace>

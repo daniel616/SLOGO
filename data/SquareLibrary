@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><Workspace Language="English"><Variable><Name>:distance</Name><Value>100.0</Value></Variable><Command><Name>square</Name><Parameter>:distance</Parameter><Body>repeat 4 [ fd :distance rt 90 ]</Body></Command></Workspace>
