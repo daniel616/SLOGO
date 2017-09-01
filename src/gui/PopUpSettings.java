@@ -91,7 +91,6 @@ public class PopUpSettings extends Stage {
 			sendToController(myResources.getString(SETXY) + " " + xval.getText() + " " + yval.getText());
 		});
 		coor.getChildren().addAll(lab, xval, comma, yval, btn);
-
 		myRoot.getChildren().add(coor);
 		
 	}

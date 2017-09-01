@@ -1,6 +1,7 @@
 # slogo
 
 A development environment that helps users write SLogo programs.
+Run main to launch.
 
 #Names
 
