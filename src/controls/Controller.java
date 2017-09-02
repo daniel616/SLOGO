@@ -224,7 +224,11 @@ public class Controller {
 	
 	public void saveLibrary() {
 		try {
-			new BackWriter(model, getFileName());
+			String name=getFileName("data"+System.getProperty("file.separator")+"code libraries");
+			if(name== null) {
+				return;
+			}
+			new BackWriter(model, name);
 		} catch (XMLException e) {
 			displayException(e);
 		}
@@ -234,7 +238,7 @@ public class Controller {
 	public void loadLibrary() {
 		try {
 			String str="";
-			File f=SimpleFileChooser.chooseFile("data/code libraries");
+			File f=SimpleFileChooser.chooseFile("data"+System.getProperty("file.separator")+"code libraries");
 			if(f==null) {
 				return;
 			}
@@ -253,7 +257,7 @@ public class Controller {
 	
 	public void loadVisual() {
 		try {
-			File f=SimpleFileChooser.chooseFile("data/visual settings");
+			File f=SimpleFileChooser.chooseFile("data"+System.getProperty("file.separator")+"visual settings");
 			if(f==null) {
 				return;
 			}
@@ -266,19 +270,23 @@ public class Controller {
 
 	public void saveVisual() {
 		try {
-			new FrontWriter(model, getFileName());
+			String name=getFileName("data"+System.getProperty("file.separator")+"visual settings");
+			if(name == null) {
+				return;
+			}
+			new FrontWriter(model, name);
 		} catch (XMLException e) {
 			displayException(e);
 		}
 	}
 	
-	private String getFileName() {
-		return fileChooser().showSaveDialog(new Stage()).getAbsolutePath();
-	}
-	
-	private FileChooser fileChooser() {
+	private String getFileName(String startDirectory) {
 		FileChooser fc = new FileChooser();
-		fc.setInitialDirectory(new File(System.getProperty("user.dir")));
-		return fc;
+		fc.setInitialDirectory(new File(startDirectory));
+		File f=fc.showSaveDialog(new Stage());
+		if(f==null) {
+			return null;
+		}
+		return f.getAbsolutePath();
 	}
 }

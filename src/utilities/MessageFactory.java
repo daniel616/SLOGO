@@ -12,6 +12,6 @@ public class MessageFactory {
 		Alert message=new Alert(AlertType.INFORMATION);
 		message.setTitle("Info");
 		message.setContentText(text);
-		message.showAndWait();
+		message.show();
 	}
 }
